@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librería bitWeather</title>
+</head>
+<body>
+  <!-- Contenedor donde se generará la tarjeta -->
+  <div id="weatherCard"></div>
+
+  <!-- Script con la definición de la librería -->
+  <script>
+    // Definimos el objeto bitWeather
+    const bitWeather = {
+      // Método para manejar tarjetas
+      card: function (selector) {
+        return {
+          // Método para crear la tarjeta
+          create: function () {
+            // Seleccionar el elemento del DOM con el selector proporcionado
+            const container = document.querySelector(selector);
+  
+            if (!container) {
+              console.error("El selector proporcionado no existe en el DOM.");
+              return;
+            }
+  
+            // Insertar el contenido de la tarjeta
+            container.innerHTML = `
+              <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem; max-width: 300px; font-family: Arial, sans-serif;">
+                <h2 style="font-size: 1.5rem; color: #333;">Clima Actual</h2>
+                <p style="font-size: 1rem; color: #555;">Ubicación: <span style="color: #000;">Ciudad Ejemplo</span></p>
+                <p style="font-size: 1rem; color: #555;">Temperatura: <span style="color: #000;">25°C</span></p>
+                <p style="font-size: 1rem; color: #555;">Humedad: <span style="color: #000;">60%</span></p>
+                <p style="font-size: 1rem; color: #555;">Condición: <span style="color: #000;">Parcialmente Nublado</span></p>
+              </div>
+            `;
+          },
+        };
+      },
+    };
+  </script>
+
+  <!-- Script para usar la librería -->
+  <script>
+    // Llamamos al método `create` desde la librería `bitWeather`
+    bitWeather.card('#weatherCard').create();
+  </script>
+</body>
+</html>
